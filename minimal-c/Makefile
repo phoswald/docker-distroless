@@ -4,12 +4,10 @@ minimal : minimal.c
 
 image : Dockerfile minimal 
 	docker build -t minimal-c . 
-	touch image
 
 run : image
 	docker run -it --rm -e CALLER=Makefile minimal-c arg1 arg2
 
 clean :
-	rm minimal
-	rm image
-	docker rmi minimal-c
+	rm -f minimal
+	docker image prune -f
