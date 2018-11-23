@@ -7,6 +7,11 @@ Experiments with minimalistic Docker images
     $ cd minimal-c
     $ make run
 
+## Build and run image (Java)
+
+    $ cd minimal-java
+    $ make run
+
 ## Inspect base image and built image
 
     $ docker save -o opensuse-leap-42.3.tar opensuse/leap:42.3
