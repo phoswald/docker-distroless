@@ -7,6 +7,11 @@ Experiments with minimalistic Docker images
     $ cd minimal-c
     $ make run
 
+## Build and run image (Go)
+
+    $ cd minimal-go
+    $ make run
+
 ## Build and run image (Java)
 
     $ cd minimal-java
@@ -16,4 +21,5 @@ Experiments with minimalistic Docker images
 
     $ docker save -o opensuse-leap-42.3.tar opensuse/leap:42.3
     $ docker save -o minimal-c.tar          minimal-c:latest
+    $ docker save -o minimal-go.tar         minimal-go:latest
     $ docker save -o minimal-java.tar       minimal-java:latest
