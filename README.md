@@ -9,6 +9,9 @@ Experiments with minimalistic Docker images
 
 ## Build and run image (Java)
 
+Manually download Oracle JDK from Oracle 
+into `minimal-java/dependencies/jdk-8u181-linux-x64.tar.gz`
+
     $ cd minimal-java
     $ make run
 
