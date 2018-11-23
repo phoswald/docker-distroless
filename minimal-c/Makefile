@@ -6,7 +6,7 @@ image : Dockerfile minimal
 	docker build -t minimal-c . 
 
 run : image
-	docker run -it --rm -e CALLER=Makefile minimal-c arg1 arg2
+	docker run -it --rm -e CALLER=Makefile minimal-c minimal arg1 arg2
 
 clean :
 	rm -f minimal
