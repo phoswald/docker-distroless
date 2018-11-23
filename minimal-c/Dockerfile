@@ -10,11 +10,16 @@ RUN set -x \
 
 FROM scratch
 
+# Copy root filesystem from /stage of previous image
 COPY --from=prepare /stage /
 
+# Define some environment stuff (just for fun)
 ENV APPLICATION Minimal Stuff
 
+# Copy application and define entrypoint and command
+# We use ENTRYPOINT instead of CMD so that both of the following work out of the box:
+# `$ docker run <image>`           -> `$ minimal`
+# `$ docker run <image> argument`  -> `$ minimal argument`
 COPY minimal /usr/local/application/
-
 ENTRYPOINT ["/usr/local/application/minimal"]
 CMD []
