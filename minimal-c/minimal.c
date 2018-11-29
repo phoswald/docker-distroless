@@ -17,4 +17,7 @@ int main(int argc, char** argv) {
         printf("- '%s'\n", *current);
         current++;
     }
+
+    puts("");
+    printf("User: real %i:%i, effective %i:%i\n", getuid(), getgid(), geteuid(), getegid());
 }
