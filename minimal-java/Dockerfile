@@ -1,4 +1,4 @@
-FROM opensuse/leap:42.3 AS prepare
+FROM opensuse/leap:15.1 AS prepare
 
 # Install required packages
 RUN zypper --non-interactive install -n glibc-locale
@@ -16,9 +16,10 @@ RUN set -x \
  && cp    /lib64/ld-linux-x86-64.so.2 /stage/lib64/ \
  && cp    /lib64/libc.so.6            /stage/lib64/ \
  && cp    /lib64/libpthread.so.0      /stage/lib64/ \
+ && cp    /lib64/libz.so.1            /stage/lib64/ \
  && cp    /lib64/libdl.so.2           /stage/lib64/ \
  && cp    /lib64/libm.so.6            /stage/lib64/ \
- && cp    /lib64/librt.so.1           /stage/lib64/ \
+#&& cp    /lib64/librt.so.1           /stage/lib64/ \
  && cp -r /usr/lib/locale/de_CH.utf8  /stage/usr/lib/locale/ \
 #&& cp -r /usr/share/locale/de        /stage/usr/share/locale/ \
 #&& cp -r /usr/share/locale/de_CH     /stage/usr/share/locale/ \
@@ -36,7 +37,7 @@ ENV TZ                Europe/Zurich
 ENV LANG              de_CH.UTF-8
 ENV LC_ALL            de_CH.UTF-8
 ENV PATH              /usr/local/jre/bin
-ENV JAVA_TOOL_OPTIONS -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2 -Dcaller=Docker
+ENV JAVA_TOOL_OPTIONS -XX:MaxRAMPercentage=50 -Dcaller=Docker
 
 # Copy application and define command
 WORKDIR /usr/local/application/
