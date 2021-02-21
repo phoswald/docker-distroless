@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"syscall"
 )
 
 func main() {
@@ -21,4 +22,6 @@ func main() {
 		pair := strings.Split(e, "=")
 		fmt.Println("- " + pair[0] + "='" + pair[1] + "'")
 	}
+	
+	fmt.Printf("User: %d:%d\n", syscall.Getuid(), syscall.Getgid())	
 }

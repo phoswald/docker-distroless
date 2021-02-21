@@ -39,6 +39,9 @@ ENV LC_ALL            de_CH.UTF-8
 ENV PATH              /usr/local/jre/bin
 ENV JAVA_TOOL_OPTIONS -XX:MaxRAMPercentage=50 -Dcaller=Docker
 
+# Define user/group (optional, does NOT require /etc/passwd)
+USER 1001:1002
+
 # Copy application and define command
 WORKDIR /usr/local/application/
 COPY Minimal.class .
